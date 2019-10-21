@@ -18,7 +18,32 @@ function getall(req,res){
 		}
 	})
 }
+function getDados(req,res){
+	connection.query('SELECT * FROM fabricainteligente.dados', function(error, results){
+		if(error){
+			res.sendStatus(500);
+			debugger;
+			console.log("deu erro");
+			console.log(error);
+		} else {
+			res.send(results);
+		}
+	})
+}
+function addDados(req,res){
+	let values = '"' + req.body.ip +'","' + req.body.valor + '"';
 
+	connection.query('INSERT INTO fabricainteligente.maquinas(Ip,Valor) VALUES (' + values + ')', function(error, results){
+	 	if (error){
+			 res.sendStatus(500);
+			 debugger;
+			 console.log("deu erro");
+			 console.log(error);
+	 	} else {
+			res.send(req.body);
+		}
+	 })
+}
 function add(req,res){
 	let values = '"' + req.body.fabricante +'","' + req.body.modelo +'","' + req.body.ip + '"';
 
@@ -34,4 +59,4 @@ function add(req,res){
 	 })
 }
 
-module.exports = {getall, add}
+module.exports = {getall, add,addDados,getDados}

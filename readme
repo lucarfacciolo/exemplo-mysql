@@ -8,3 +8,9 @@ Para criar a tabela no MySQL use:
     Modelo  VARCHAR(255) NOT NULL,
     Fabricante  VARCHAR(255) NOT NULL,
     PRIMARY KEY(id, ip));
+
+    CREATE TABLE dados (
+    id INT UNSIGNED AUTO_INCREMENT,
+    Valor  INT NOT NULL,
+    Ip  VARCHAR(255) NOT NULL,
+    PRIMARY KEY(id));
