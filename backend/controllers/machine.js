@@ -33,6 +33,7 @@ function getDados(req,res){
 function addDados(req,res){
 	console.log(req.body);
 	let values = '"' + req.body.ip +'","' + req.body.valor + '"';
+	console.log()
 
 	connection.query('INSERT INTO fabricainteligente.dados(Ip,Valor) VALUES (' + values + ')', function(error, results){
 	 	if (error){
