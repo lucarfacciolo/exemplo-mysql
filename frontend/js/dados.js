@@ -6,7 +6,7 @@ function updateList(dados){
 		table_html += "<tr>"
 		table_html += "<th>" + index + "</th>"
 		table_html += "<th>" + item.Valor + "</th>"
-		table_html += "<th>" + item.ip + "</th>"
+		table_html += "<th>" + item.Ip + "</th>"
 		table_html += "</tr>"
 	})
 	$("#listTable tbody").html(table_html);
@@ -19,6 +19,8 @@ $(document).ready(function(){
 		 url: "/exemplo/api/dados",
 		//url: "http://127.0.0.1:5000/api/dados",
 	}).done(function(resp){
+		debugger;
+		console.log(resp);
 		updateList(resp);
 	})
 	.fail(function() {
